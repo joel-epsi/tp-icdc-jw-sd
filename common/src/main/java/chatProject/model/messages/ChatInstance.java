@@ -92,7 +92,9 @@ public class ChatInstance<T> {
      * @return the new chat instance
      */
     public static <T> ChatInstance<T> initEmptyChat() {
-        return new ChatInstance<T>(null, null);
+
+        ArrayList<Chatroom<T>> arrayList = new ArrayList<>();
+        return new ChatInstance<T>(arrayList, null);
     }
 
 }

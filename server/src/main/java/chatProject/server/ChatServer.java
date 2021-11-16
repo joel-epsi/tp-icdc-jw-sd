@@ -282,6 +282,8 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
 
         /* maybe I should notify clients about the new chatroom ?? */
 
+        notifyNewChatroom(newChatroom);
+
         return newChatroomId;
     }
 
@@ -318,6 +320,8 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
         Message<T> newMessage = getChatroom(chatroomId).addMessage(user, content);
 
         // return new created message
+
+        notifyNewMessage(chatroomId,newMessage);
         return newMessage;
     }
 
@@ -330,6 +334,7 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
         clientNotifiers.forEach(
                 client -> client.notifyNewMessage(chatroomId, newMessage)
         );
+
         return newMessage;
     }
 

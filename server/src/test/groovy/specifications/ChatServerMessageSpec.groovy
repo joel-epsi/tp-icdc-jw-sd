@@ -2,6 +2,9 @@ package specifications
 
 import chatProject.model.messages.ChatInstance
 import chatProject.model.messages.Message
+import chatProject.model.user.Status
+import chatProject.model.user.UserAccount
+import chatProject.model.user.UserInfo
 import chatProject.server.ChatServer
 import chatProject.server.ClientNotifierInterface
 import spock.lang.Specification
@@ -13,10 +16,12 @@ class ChatServerMessageSpec extends Specification {
         def server = new ChatServer(ChatInstance.initEmptyChat(), null, null)
 
         and: "A chatroom"
+
         int chatroomId = server.addChatroom(null, null)
 
         when: "A new message is created in the Chatroom"
-        server.addMessage(chatroomId, null, "Test message")
+        def userInfo = new UserInfo(new UserAccount(0,"joel"), Status.ACTIVE)
+        server.addMessage(chatroomId, userInfo, "Test message")
 
         then: "The new message should be added to the model"
         // get messages in the chatroom
