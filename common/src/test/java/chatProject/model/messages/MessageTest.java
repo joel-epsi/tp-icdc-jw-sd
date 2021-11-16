@@ -8,7 +8,7 @@ public class MessageTest {
 
     @Test
     public void getId() {
-        int id = 42;
+        int id = 0;
         final Message<Object> message = new Message<>(id, null, null);
 
         assertEquals("The message ID is not the one set in the constructor",

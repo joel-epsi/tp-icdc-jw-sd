@@ -12,11 +12,11 @@ public class UserAccount {
     /**
      * The ID of a user (not needed).
      */
-    private final int id;
+    private int id;
     /**
      * The name of a user.
      */
-    private final String username;
+    private String username;
 
     public UserAccount(int id, String username) {
         this.id = id;
@@ -36,7 +36,7 @@ public class UserAccount {
      * @return the username
      */
     public String getUsername() {
-        return "test";
+        return username;
     }
 
     @Override
