@@ -37,6 +37,7 @@ class ChatServerChatroomSpec extends Specification {
 
         int chatroomId = server.addChatroom("Test chatroom", userInfo)
 
+
         then: "The client listener should be notified about a new chatroom"
         1 * clientNotifier.notifyNewChatroom(_)
 

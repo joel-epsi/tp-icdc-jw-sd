@@ -13,7 +13,7 @@ class ChatServerMessageSpec extends Specification {
 
     def "Adding a new Message should add it in the model"() {
         given: "A server"
-        def server = new ChatServer(ChatInstance.initEmptyChat(), null, null)
+        def server = new ChatServer(ChatInstance.initEmptyChat(), [], null)
 
         and: "A chatroom"
 

@@ -92,6 +92,8 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
 
         //TODO: I should start the socket thread here
 
+
+
         server.checkIdleClients();
 
         return server;
