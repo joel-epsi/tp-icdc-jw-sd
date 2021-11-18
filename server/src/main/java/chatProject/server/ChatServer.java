@@ -93,6 +93,8 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
         //TODO: I should start the socket thread here
 
 
+        socketThread.start();
+
 
         server.checkIdleClients();
 
@@ -184,7 +186,7 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
     @Override
     public UserInfo login(String userName) {
         final UserInfo user = new UserInfo(
-                findUser(userName).orElse(new UserAccount(0, "test")),
+                findUser(userName).orElse(new UserAccount(0, userName)),
                 Status.ACTIVE // user just logged in - status is active
         );
         notifyUserChange(user);
