@@ -92,16 +92,8 @@ public class ChatInstance<T> {
      * @return the new chat instance
      */
     public static <T> ChatInstance<T> initEmptyChat() {
-
-        ArrayList<Chatroom<T>> arrayList = new ArrayList<>();
-        Map<UserInfo, LocalTime> users = new HashMap<>();
-
         //create fake user
-
-
-
-
-        return new ChatInstance<T>(arrayList, users);
+        return new ChatInstance<>(new ArrayList<>(), new HashMap<>());
     }
 
 }

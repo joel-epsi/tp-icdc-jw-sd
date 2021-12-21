@@ -149,14 +149,21 @@ public class ChatroomGUI<T> implements MessageListener<T>, UserListener {
 
     private String messageAsString(Message<T> msg) {
         final UserInfo sender = msg.getSender();
-        return GUIHelpers.getUserRepresentation(
-                // Force user status refresh from the user model if the user is not in the model anymore
-                chat.getUsers().stream().filter(userInfo -> sender.getAccount().equals(userInfo.getAccount()))
-                        .findAny().orElseGet(() -> {
-                        sender.setCurrentStatus(Status.INACTIVE);
-                        return sender;
-                })
-        ) + "> " + msg.getMessage().toString();
+
+        if(sender != null) {
+
+            return GUIHelpers.getUserRepresentation(
+                    // Force user status refresh from the user model if the user is not in the model anymore
+                    chat.getUsers().stream().filter(userInfo -> sender.getAccount().equals(userInfo.getAccount()))
+                            .findAny().orElseGet(() -> {
+                                sender.setCurrentStatus(Status.INACTIVE);
+                                return sender;
+                            })
+            ) + "> " + msg.getMessage().toString();
+        }
+
+        System.err.println("Error chat is null");
+        return null;
     }
 
 

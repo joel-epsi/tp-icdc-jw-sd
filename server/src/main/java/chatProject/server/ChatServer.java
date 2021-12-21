@@ -69,7 +69,7 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
      * @return a new instance of this class to use as a server
      * @throws IOException not sure when ?
      */
-    public static <T> ChatServer<T> initEmptyChat(int socketPort, Gson json) throws IOException {
+    public static <T> ChatServer<T> initEmptyChat(int socketPort, Gson json) {
 
         // instantiate a new instance of this class with an empty model.
         final ChatServer<T> server = new ChatServer<>(
@@ -207,12 +207,7 @@ public class ChatServer<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
             return Optional.empty();
         }
         // Real code
-        /*
-        return chatInstance.getUsers().keySet().stream()
-                .map(UserInfo::getAccount)
-                .filter(account -> account.getUsername().equals(userName))
-                .findAny();
-        */
+
     }
 
     /**

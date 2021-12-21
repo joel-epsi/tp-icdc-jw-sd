@@ -12,11 +12,11 @@ public class UserAccount {
     /**
      * The ID of a user (not needed).
      */
-    private int id;
+    private final int id;
     /**
      * The name of a user.
      */
-    private String username;
+    private final String username;
 
     public UserAccount(int id, String username) {
         this.id = id;

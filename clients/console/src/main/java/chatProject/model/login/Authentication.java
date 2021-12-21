@@ -6,11 +6,6 @@ package chatProject.model.login;
  */
 public class Authentication {
 
-    private final String username;
-    private final String password;
-
     public Authentication(String username, String password) {
-        this.username = username;
-        this.password = password;
     }
 }

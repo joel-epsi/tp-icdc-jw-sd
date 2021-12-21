@@ -126,7 +126,10 @@ public class ChatClient<T> implements UserAlgo, ChatroomAlgo<T>, MessageAlgo<T>,
             response = Request.Post(serverUrl + "/login").bodyByteArray(userName.getBytes())
                     .execute().returnContent().asString();
         } catch (IOException e) {
+
             System.err.println("Cannot login " + userName);
+
+            e.printStackTrace();
             return FakeInstances.UNKNOWN_USER_INFO;
         }
 
